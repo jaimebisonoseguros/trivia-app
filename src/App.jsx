@@ -189,8 +189,6 @@ export default function App() {
     return (
       <div className="app final-yes">
         <Background hearts />
-        <img src="/happy.png" className="happy-img" alt="" />
-        <h1>Suficiente AI, ahora le toca Jaime hablar</h1>
       </div>
     )
   }
