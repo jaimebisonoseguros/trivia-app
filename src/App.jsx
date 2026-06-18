@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import yesEmoji from './assets/yes-emoji.png'
 
 const TIMER_SECONDS = 15
 
@@ -109,6 +110,7 @@ export default function App() {
   const [showHint, setShowHint] = useState(false)
   const [score, setScore] = useState(0)
   const [finished, setFinished] = useState(false)
+  const [showMessage, setShowMessage] = useState(false)
   const [finalAnswer, setFinalAnswer] = useState(null)
   const [noPos, setNoPos] = useState({ x: 0, y: 0 })
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS)
@@ -140,7 +142,7 @@ export default function App() {
     setSelected(null)
     setShowHint(false)
     if (current + 1 >= questions.length) {
-      setFinished(true)
+      setShowMessage(true)
     } else {
       setCurrent(c => c + 1)
     }
@@ -189,6 +191,23 @@ export default function App() {
     return (
       <div className="app final-yes">
         <Background hearts />
+        <img src={yesEmoji} alt="" className="yes-emoji-img" />
+      </div>
+    )
+  }
+
+  if (showMessage && !finished) {
+    return (
+      <div className="app final-screen">
+        <Background hearts />
+        <div className="instructions-card">
+          <p className="message-text">
+            Hola
+          </p>
+          <button className="start-btn" onClick={() => { setShowMessage(false); setFinished(true) }}>
+            Siguiente →
+          </button>
+        </div>
       </div>
     )
   }

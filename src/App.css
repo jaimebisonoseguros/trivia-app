@@ -380,6 +380,13 @@ body {
   max-width: 100%;
 }
 
+.yes-emoji-img {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  animation: pulse 1.2s infinite;
+}
+
 .happy-img {
   width: 130px;
   height: 130px;
@@ -398,4 +405,12 @@ body {
   font-weight: 800;
   color: white;
   text-shadow: 0 2px 8px rgba(180,0,80,0.3);
+}
+
+.message-text {
+  font-size: 20px;
+  color: #444;
+  line-height: 1.7;
+  text-align: center;
+  white-space: pre-line;
 }
