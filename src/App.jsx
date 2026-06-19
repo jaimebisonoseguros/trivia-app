@@ -201,9 +201,13 @@ export default function App() {
       <div className="app final-screen">
         <Background hearts />
         <div className="instructions-card">
-          <p className="message-text">
-            Hola
-          </p>
+          <div className="message-text">
+            <p><strong>Querida Sophia María,</strong></p>
+            <p>Me gusta porque ahora mismo yo estoy escribiendo esto, pero sé que cuando lo vuelva a leer estaré a tu lado. Probablemente estés confundida porque se supone que esto sea un quiz de películas y ahora, de repente, estás leyendo esto, pero las sorpresas mías siempre serán buenas para ti.</p>
+            <p>Han pasado 2 meses y 11 días desde aquella noche en Il Bacareto, y nunca pensé que iba a querer tanto a una persona y en tan poco tiempo. Sé que no nos vemos todos los días, pero lo que hemos vivido juntos pocas personas lo pueden lograr.</p>
+            <p>Contigo yo soy yo. Ninguna persona en mi vida ha logrado eso, y más que sabes que soy una persona tímida, pero tú me has ayudado a no serla.</p>
+            <p>Eres perfecta, aunque creas que no. Tu personalidad fue lo que me hizo enamorarme de ti aparte de tu belleza. Yo realmente no encuentro las palabras para decirte lo tanto que te quiero, y cada día contigo me convence más de que quiero seguir contigo. Es por eso que lo que yo más quiero ahora mismo es preguntarte lo siguiente:</p>
+          </div>
           <button className="start-btn" onClick={() => { setShowMessage(false); setFinished(true) }}>
             Siguiente →
           </button>

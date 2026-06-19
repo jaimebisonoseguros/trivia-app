@@ -408,9 +408,15 @@ body {
 }
 
 .message-text {
-  font-size: 20px;
+  font-size: 17px;
   color: #444;
-  line-height: 1.7;
-  text-align: center;
-  white-space: pre-line;
+  line-height: 1.8;
+  text-align: left;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.message-text p {
+  margin-bottom: 1em;
 }
