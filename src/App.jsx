@@ -102,7 +102,12 @@ function Background({ hearts = false }) {
   )
 }
 
+const PASSWORD = '210626'
+
 export default function App() {
+  const [authenticated, setAuthenticated] = useState(false)
+  const [passwordInput, setPasswordInput] = useState('')
+  const [passwordError, setPasswordError] = useState(false)
   const [started, setStarted] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -152,6 +157,37 @@ export default function App() {
     const x = (Math.random() - 0.5) * 300
     const y = (Math.random() - 0.5) * 200
     setNoPos({ x, y })
+  }
+
+  function handlePasswordSubmit(e) {
+    e.preventDefault()
+    if (passwordInput === PASSWORD) {
+      setAuthenticated(true)
+    } else {
+      setPasswordError(true)
+      setPasswordInput('')
+    }
+  }
+
+  if (!authenticated) {
+    return (
+      <div className="app intro-screen">
+        <Background />
+        <h1 className="intro-title">THE BIG<br/>SCREEN QUIZ</h1>
+        <form className="password-form" onSubmit={handlePasswordSubmit}>
+          <input
+            className={`password-input${passwordError ? ' password-input--error' : ''}`}
+            type="password"
+            placeholder="Contraseña"
+            value={passwordInput}
+            onChange={e => { setPasswordInput(e.target.value); setPasswordError(false) }}
+            autoFocus
+          />
+          {passwordError && <p className="password-error">Contraseña incorrecta 🔒</p>}
+          <button className="start-btn" type="submit">Entrar</button>
+        </form>
+      </div>
+    )
   }
 
   if (!started && !showInstructions) {
